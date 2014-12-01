@@ -13,3 +13,10 @@
 (global-set-key (kbd "C-$") 'replace-regexp)
 (global-set-key (kbd "C-%") 'replace-last-sexp)
 (global-set-key (kbd "C-^") 'compile)
+
+;; Custom Bindings (Mac)
+;; (global-set-key (kbd "C-'") 'indent-according-to-mode)
+;; (global-set-key (kbd "C-#") 'replace-string)
+;; (global-set-key (kbd "C-$") 'replace-regexp)
+;; (global-set-key (kbd "C-%") 'replace-last-sexp)
+;; (global-set-key (kbd "A-§") 'compile)

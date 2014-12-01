@@ -11,6 +11,7 @@
 
 ;; clang-autocomplete
 ;; (add-to-list 'load-path (concat myoptdir "AC"))
+;; (require 'auto-complete-config)
 ;; (add-to-list 'ac-dictionary-directories (concat myoptdir "AC/ac-dict"))
 
 (require 'auto-complete-clang)
@@ -45,3 +46,16 @@
  /usr/include
 "               )))
 (put 'scroll-left 'disabled nil)
+
+               "
+;;  /usr/local/Cellar/gcc47/4.7.3/lib/gcc/x86_64-apple-darwin13.3.0/4.7.3/include/c++
+;;  /usr/local/Cellar/gcc47/4.7.3/lib/gcc/x86_64-apple-darwin13.3.0/4.7.3/include/c++/x86_64-apple-darwin13.3.0
+;;  /usr/local/Cellar/gcc47/4.7.3/lib/gcc/x86_64-apple-darwin13.3.0/4.7.3/include/c++/backward
+;;  /usr/local/Cellar/gcc47/4.7.3/lib/gcc/x86_64-apple-darwin13.3.0/4.7.3/include
+;;  /usr/local/include
+;;  /usr/local/Cellar/gcc47/4.7.3/lib/gcc/x86_64-apple-darwin13.3.0/4.7.3/include-fixed
+;;  /usr/include
+;;  /System/Library/Frameworks
+;;  /Users/ashkan/work/tidm/rostam
+;;  /Library/Frameworks
+;; "

@@ -8,3 +8,4 @@
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)))
 (global-set-key (kbd "C-`") 'comment-or-uncomment-region-or-line)
+;; (global-set-key (kbd "C-§") 'comment-or-uncomment-region-or-line)
