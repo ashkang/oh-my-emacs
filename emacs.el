@@ -4,6 +4,9 @@
 ;; Custom Bindings
 (load-user-file "configs/emacs.bindings.el")
 
+;; Fullscreen Functionality
+(load-user-file "configs/emacs.fullscreen.el")
+
 ;; Custom Variables
 (load-user-file "configs/emacs.vars.el")
 
