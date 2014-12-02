@@ -10,6 +10,9 @@
 ;; Autocomplete
 (defconst bd-autocomplete "C-TAB")
 
+;; CEDET
+(defconst bd-semantic-ia-complete-symbol-menu "M-<RET>")
+
 ;; IDO
 (defconst bd-ido-next-match "C-n")
 (defconst bd-ido-prev-match "C-p")

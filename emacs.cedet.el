@@ -30,7 +30,7 @@
 
 ;; (define-key (current-global-map) (kbd ".") 'semantic-complete-self-insert)
 ;; (define-key (current-global-map) "." 'semantic-complete-analyze-inline)
-(define-key (current-global-map) (kbd "M-<RET>") 'semantic-ia-complete-symbol-menu)
+(define-key (current-global-map) (kbd bd-semantic-ia-complete-symbol-menu) 'semantic-ia-complete-symbol-menu)
 
 (setq-mode-local c++-mode
                  semanticdb-find-default-throttle

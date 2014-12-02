@@ -1,7 +1,6 @@
 ;; Go Customizations
 ; Go autocomplete
 (require 'go-autocomplete)
-(define-key ac-mode-map (kbd bd-autocomplete) 'auto-complete)
 (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;; go useful setup
