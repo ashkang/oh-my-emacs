@@ -10,8 +10,6 @@
  "
 )
 
-(load-file )
-
 (defconst __go_oracle_path__
   "/home/ashkan/golang/src/code.google.com/p/go.tools/cmd/oracle/oracle.el"
 )
