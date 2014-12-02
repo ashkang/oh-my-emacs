@@ -1,13 +1,11 @@
 ;; Go Customizations
 ; Go autocomplete
 (require 'go-autocomplete)
-(define-key ac-mode-map (kbd "C-TAB") 'auto-complete)
-;; (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(define-key ac-mode-map (kbd bd-autocomplete) 'auto-complete)
 (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;; go useful setup
-(load-file "/home/ashkan/golang/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
-;; (load-file "/Users/ashkan/tools/goroot/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
+(load-file __go_oracle_path__)
  (defun my-go-mode-hook ()
   (setq gofmt-command "goimports")
   ; Call Gofmt before saving
@@ -17,8 +15,7 @@
       (set (make-local-variable 'compile-command)
            "go build -v && go test -v && go vet"))
   ; Godef jump key binding
-  (local-set-key (kbd "C-=") 'godef-jump))
-  ;; (local-set-key (kbd "M-§") 'godef-jump))
+  (local-set-key (kbd bd-godefjump) 'godef-jump))
   ; Go Oracle
   (go-oracle-mode)
  (add-hook 'go-mode-hook 'my-go-mode-hook)

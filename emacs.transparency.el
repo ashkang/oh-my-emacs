@@ -31,8 +31,8 @@
     (message "This is a minimum value of transparency!")))
 
 ;; sample keybinding for transparency manipulation
-(global-set-key (kbd "C-?") 'transparency-set-value)
+(global-set-key (kbd bd-transparency-set-value) 'transparency-set-value)
 
 ;; the two below let for smooth transparency control
-(global-set-key (kbd "C-)") 'transparency-increase)
-(global-set-key (kbd "C-(") 'transparency-decrease)
+(global-set-key (kbd bd-transparency-increase) 'transparency-increase)
+(global-set-key (kbd bd-transparency-decrease) 'transparency-decrease)

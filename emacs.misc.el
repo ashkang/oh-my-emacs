@@ -8,15 +8,8 @@
 (put 'downcase-region 'disabled nil)
 
 ;; Custom Bindings
-(global-set-key (kbd "C-'") 'indent-according-to-mode)
-(global-set-key (kbd "C-#") 'replace-string)
-(global-set-key (kbd "C-$") 'replace-regexp)
-(global-set-key (kbd "C-%") 'replace-last-sexp)
-(global-set-key (kbd "C-^") 'compile)
-
-;; Custom Bindings (Mac)
-;; (global-set-key (kbd "C-'") 'indent-according-to-mode)
-;; (global-set-key (kbd "C-#") 'replace-string)
-;; (global-set-key (kbd "C-$") 'replace-regexp)
-;; (global-set-key (kbd "C-%") 'replace-last-sexp)
-;; (global-set-key (kbd "A-§") 'compile)
+(global-set-key (kbd bd-indent-according-to-mode) 'indent-according-to-mode)
+(global-set-key (kbd bd-replace-string) 'replace-string)
+(global-set-key (kbd bd-replace-regexp) 'replace-regexp)
+(global-set-key (kbd bd-replace-last-sexp) 'replace-last-sexp)
+(global-set-key (kbd bd-compile) 'compile)

@@ -1,6 +1,12 @@
 ;; Basic Setup
 (load-file ".emacs.d/configs/emacs.basic.el")
 
+;; Custom Bindings
+(load-user-file "configs/emacs.bindings.el")
+
+;; Custom Variables
+(load-user-file "configs/emacs.vars.el")
+
 ;; Custom Set
 (load-user-file "configs/emacs.customset.el")
 
