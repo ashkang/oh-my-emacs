@@ -86,8 +86,6 @@ function prepare_all() {
     make_singlesym "$cwd/deps/emacs.basic.el" "$HOME/.emacs.d/configs"
     notice "Linking plugin base..."
     make_syms "$cwd/plugins" "$plugin_dir"
-    notice "Linking main configuration..."
-    make_singlesym "$cwd/emacs.mac.el" "$HOME" ".emacs"
 }
 
 echo -e "Running install script for architecture: ${yellow}${arch}${reset}"
@@ -99,10 +97,14 @@ case $arch in
     Linux)
         plugin_dir="$HOME/.emacs.d/configs"
         prepare_all
+        notice "Linking main configuration..."
+        make_singlesym "$cwd/emacs.linux.el" "$HOME" ".emacs"
         ;;
     Darwin)
         plugin_dir="$HOME/${aquamacs_path}/Packages/configs"
         prepare_all
+        notice "Linking main configuration..."
+        make_singlesym "$cwd/emacs.mac.el" "$HOME" ".emacs"
         notice "Applying darwin specific patches..."
         make_syms "$cwd/mac" "$plugin_dir"
         update_loadpath "elpa"
