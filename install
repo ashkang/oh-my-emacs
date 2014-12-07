@@ -1,0 +1,110 @@
+#!/bin/bash
+
+trap "exit 1" TERM
+export __me=$$
+
+arch=`uname`
+cwd=`pwd`
+user=`whoami`
+dep_dir="$HOME/.emacs.d/configs"
+config_path="$HOME/.emacs"
+aquamacs_path="Library/Preferences/Aquamacs Emacs"
+
+red="\033[1;31m"
+green="\033[1;32m"
+yellow="\033[1;33m"
+cyan="\033[1;36m"
+reset="\033[0m"
+
+function die {
+    echo -e "${reset}"
+    echo -e "${red}error:${reset} $1"
+    kill -s TERM $__me
+
+    return 0
+}
+
+function warn {
+    echo -e "${yellow}warning:${reset} $1"
+
+    return 0
+}
+
+function notice {
+    echo -e "${cyan}* $1"
+
+    return 0
+}
+
+function make_singlesym() {
+    src="$1"
+    dst="$2"
+    name="$3"
+
+    [ ! -z "$src" ] || die "source dir is unset"
+    [ ! -z "$dst" ] || die "destination dir is unset"
+
+    [ ! -z "$name" ] || name=$(basename "$src")
+    echo -e "${green} * Symlink${reset} ${yellow}${src}${reset} ${cyan}->${reset} ${yellow}${dst}/${name}${reset}"
+    ln -sf "$src" "${dst}/${name}" # || warn "Symlink already exists"
+}
+
+function make_syms() {
+    src="$1"
+    dst="$2"
+
+    [ ! -z "$src" ] || die "source dir is unset at make_syms()"
+    [ ! -z "$dst" ] || die "destination dir is unset at make_syms()"
+
+    for i in $src/*.el; do
+        make_singlesym "$i" "$dst"
+    done
+}
+
+function update_loadpath() {
+    repo="$1"
+    [ ! -z "$repo" ] || die "repository not set at update_loadpath()"
+    target="$HOME/$aquamacs_path/Packages/$repo"
+    loadpath_file="$HOME/$aquamacs_path/Packages/configs/emacs.loadpaths.el"
+    rm -f "$loadpath_file"
+
+    cd "$target"
+    echo -e ";; Load-path Customizations" >> "$loadpath_file"
+    for i in *; do
+        if [ -d $i ]; then
+            token="(add-to-list 'load-path \"${target}/${i}\")"
+            echo -e " ${green}* Update${reset} ${yellow}$token ${cyan}-> ${yellow}${loadpath_file}${reset}"
+            echo "$token" >> "$loadpath_file";
+        fi;
+    done;
+
+    cd $cdw
+}
+
+function prepare_all() {
+    notice "Preparing basic el scripts..."
+    make_singlesym "$cwd/deps/emacs.basic.el" "$HOME/.emacs.d/configs"
+    notice "Linking plugin base..."
+    make_syms "$cwd/plugins" "$plugin_dir"
+    notice "Linking main configuration..."
+    make_singlesym "$cwd/emacs.mac.el" "$HOME" ".emacs"
+}
+
+echo -e "Running install script for architecture: ${yellow}${arch}${reset}"
+echo -e "Current working directory: ${yellow}${cwd}${reset}"
+echo -e "User: ${yellow}${user}${reset}"
+echo -e "Home directory: ${yellow}${HOME}${reset}"
+
+case $arch in
+    Linux)
+        plugin_dir="$HOME/.emacs.d/configs"
+        prepare_all
+        ;;
+    Darwin)
+        plugin_dir="$HOME/${aquamacs_path}/Packages/configs"
+        prepare_all
+        notice "Applying darwin specific patches..."
+        make_syms "$cwd/mac" "$plugin_dir"
+        update_loadpath "elpa"
+        ;;
+esac

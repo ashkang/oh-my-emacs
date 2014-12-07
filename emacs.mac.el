@@ -4,9 +4,6 @@
 ;; Custom Bindings
 (load-user-file "configs/emacs.bindings.el")
 
-;; Fullscreen Functionality
-(load-user-file "configs/emacs.fullscreen.el")
-
 ;; Custom Variables
 (load-user-file "configs/emacs.vars.el")
 
@@ -43,6 +40,9 @@
 ;; Autocomplete
 (load-user-file "configs/emacs.ac.el")
 
+;; Company Mode Customizations
+(load-user-file "configs/emacs.company.el")
+
 ;; C/C++ Customizations
 (load-user-file "configs/emacs.cpp.el")
 
@@ -54,6 +54,9 @@
 
 ;; Python Customizations
 (load-user-file "configs/emacs.python.el")
+
+;; Django Customizations
+(load-user-file "configs/emacs.django.el")
 
 ;; Javascript Customizations
 (load-user-file "configs/emacs.js.el")
@@ -90,9 +93,6 @@
 
 ;; Smartparens Customizations
 (load-user-file "configs/emacs.smartparens.el")
-
-;; Company Mode Customizations
-(load-user-file "configs/emacs.company.el")
 
 ;; IDO Customizations
 (load-user-file "configs/emacs.ido.el")

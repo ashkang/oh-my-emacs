@@ -4,6 +4,9 @@
 ;; Custom Bindings
 (load-user-file "configs/emacs.bindings.el")
 
+;; Fullscreen Functionality
+(load-user-file "configs/emacs.fullscreen.el")
+
 ;; Custom Variables
 (load-user-file "configs/emacs.vars.el")
 
@@ -51,6 +54,9 @@
 
 ;; Python Customizations
 (load-user-file "configs/emacs.python.el")
+
+;; Django Customizations
+(load-user-file "configs/emacs.django.el")
 
 ;; Javascript Customizations
 (load-user-file "configs/emacs.js.el")

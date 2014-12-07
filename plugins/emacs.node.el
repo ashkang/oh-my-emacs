@@ -1,4 +1,7 @@
 ;; Node.js Customizations
+
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+
 (require 'nodejs-repl)
 (eval-after-load 'tern
    '(progn
