@@ -16,3 +16,12 @@
 (defconst __go_oracle_path__
   "/Users/ashkan/tools/goroot/src/code.google.com/p/go.tools/cmd/oracle/oracle.el"
 )
+
+(defconst __cedet_remove_builtin_path__
+  "~/tools/cedet/cedet-remove-builtin.el")
+
+(defconst __cedet_devel_load_path__
+  "~/tools/cedet/cedet-devel-load.el")
+
+(defconst __cedet_contrib_load_path__
+  "~/tools/cedet/contrib/cedet-contrib-load.el")
